@@ -280,7 +280,7 @@ a {
 }
 
 .hero {
-  background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url('//images/dark-bg-mobile.jpg');
+  background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url('../images/dark-bg-mobile.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -323,11 +323,21 @@ a {
   background-color: #404BBF;
 }
 
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero {
+    background-image: 
+      linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+      url('../images/backgrnd-im-hero@2x.jpg');
+  }
+}
+
 @media screen and (min-width: 768px) {
   .hero {
     padding: 112px 0;
-    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url('//images/backgrnd-im-hero.jpg');
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url('../images/people-office\ 1.jpg');
   }
+
+  
 
   .hero-title {
     font-size: 36px;
@@ -344,7 +354,7 @@ a {
 @media screen and (min-width: 1158px) {
   .hero {
     padding: 188px 0;
-    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url('//images/backgrnd-im-hero.jpg');
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url('../images/backgrnd-im-hero.jpg');
   }
 
   .hero-title {
@@ -425,21 +435,30 @@ a {
 
   .features-item {
     flex-basis: calc((100% - 72px) / 4);
-    align-items: center;
-    text-align: center;
+    /* align-items: center; */
+    text-align: left;
   }
 
   .icon {
-    display: block;
     margin-bottom: 24px;
+    border: 1px solid #8E8F99;
+  border-radius: 4px;
+  width: 264px;
+  height: 112px;
+  background-color: #F4F4FD;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   }
 
   .features-subtitle {
     font-size: 26px;
+    text-align: left;
   }
 
   .features-text {
     font-size: 18px;
+    text-align: left;
   }
 }
 
@@ -520,7 +539,7 @@ a {
 }
 
 .section-title {
-  font-family: "Raleway", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 32px;
   line-height: 1.11;
   text-align: center;
@@ -573,7 +592,6 @@ a {
 .portfolio-list {
   display: flex;
   flex-direction: column;
-  gap: 48px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -623,11 +641,13 @@ a {
   font-size: 20px;
   font-weight: 500;
   margin-bottom: 8px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .feature-text {
   font-size: 16px;
   color: #434455;
+  font-family: 'Roboto', sans-serif;
 }
 
 
@@ -635,7 +655,6 @@ a {
   .portfolio-list {
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 48px 24px;
     justify-content: center;
   }
 
@@ -656,6 +675,7 @@ a {
 @media screen and (min-width: 1158px) {
   .portfolio-list {
     gap: 24px;
+    margin-bottom: 48px;
   }
 
   .portfolio-item {
@@ -692,6 +712,7 @@ a {
   flex-direction: column;
   align-items: center;
   gap: 72px;
+  flex-wrap: wrap;
   text-align: center;
 }
 
@@ -987,12 +1008,15 @@ a {
   font-weight: 500;
   margin-bottom: 24px;
   text-align: center;
+  font-family: 'Roboto', sans-serif;
 }
 
 .modal-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 16px;  
+  align-items: stretch;
+  width: 100%;
 }
 
 .modal-label {
@@ -1091,15 +1115,21 @@ a {
 }
 
 .button-modal {
-  padding: 12px 24px;
+  display: block;
+  max-width: 169px;
+  height: 52px;
+  padding: 24px 60px;
   background-color: #4D5AE5;
   color: #FFFFFF;
   border: none;
   border-radius: 4px;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 18px;
+  margin-left: auto;
+  margin-right: auto;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  text-align: center;
 }
 
 .button-modal:hover {
@@ -1108,7 +1138,7 @@ a {
 
 @media (min-width: 768px) {
   .modal {
-    max-width: 528px;
+    max-width: 408px;
     padding: 32px;
   }
 
