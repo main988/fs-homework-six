@@ -122,6 +122,7 @@ a {
 .burger-icon {
     display: block;
     fill: #2f2f37;
+    stroke: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -228,49 +229,174 @@ a {
 }
 
 .mobile-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    opacity: 0;
-    z-index: 999;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  z-index: 1000;
+  padding: 24px 16px;
+  overflow-y: auto;
+  transition: transform 300ms ease, opacity 300ms ease;
 }
 
 .mobile-menu.is-open {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 .mobile-menu-container {
-    position: relative;
-    padding-top: 72px;
-    padding-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+  max-width: 320px;
+  margin: 0;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
 }
 
 .mobile-menu-close {
-    position: absolute;
-    top: 24;
-    right: 24;
-    border-radius: 100%;
-    border: 1px solid #d9d9d9;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #D9D9D9;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  padding: 0;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu-close:hover {
+  background-color: #404bbf;
+  border: none;
+  fill: #ffffff;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu-close:focus {
+  background-color: #404bbf;
+  border: none;
+  fill: #ffffff;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-menu-close {
+  fill: #2E2F42;
+  transition: fill 0.3s ease;
+}
+
+.mobile-menu-close:hover .icon-menu-close {
+  fill: #4D5AE5;
 }
 
 .mobile-menu-nav {
-    margin-bottom: auto;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    display: flex;
-    gap: 40px;
+  width: 100%;
+}
+
+.mobile-menu-nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  padding-left: 0;
+  margin-top: 72px;
+}
+
+.mobile-menu-nav-link {
+  display: block;
+  font-size: 36px;
+  font-weight: 700;
+  color: #2E2F42;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  text-align: left;
+}
+
+.mobile-menu-nav-link:hover,
+.mobile-menu-nav-link:focus {
+  color: #404BBF;
+}
+
+.mobile-menu-nav-link.first {
+  color: #4D5AE5;
+}
+
+.mobile-menu-contacts {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.mobile-menu-contacts ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.mobile-menu-contacts-link {
+  text-align: left;
+  padding-left: 16px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #434455;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  width: 100%;
+  display: block;
+  width: 100%;
+}
+
+.mobile-menu-tel,
+.mobile-menu-email {
+  width: 100%;
+  text-align: left;
+}
+
+.mobile-menu-tel .mobile-menu-contacts-link {
+  color: #4D5AE5;
+}
+
+.mobile-menu-contacts-link:hover {
+  color: #404BBF;
+}
+
+.mobile-menu-social {
+  display: flex;
+  justify-content: space-between; 
+  gap: 16px; 
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu-social a {
+  width: 40px;
+  height: 40px;
+  background-color: #4D5AE5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.icon-social {
+  fill: #fff;
 }
 
 @media screen and (min-width: 768px) {
@@ -280,7 +406,7 @@ a {
 }
 
 .hero {
-  background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url('../images/dark-bg-mobile.jpg');
+  background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url('../images/backgrnd-im-hero.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -299,7 +425,7 @@ a {
 }
 
 .hero-title {
-  font-size: 24px;
+  font-size: 36px;
   font-weight: 700;
   line-height: 1.07;
   max-width: 220px;
@@ -327,20 +453,20 @@ a {
   .hero {
     background-image: 
       linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
-      url('../images/backgrnd-im-hero@2x.jpg');
+      url('../images/backgrnd-im-hero.jpg');
   }
 }
 
 @media screen and (min-width: 768px) {
   .hero {
     padding: 112px 0;
-    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url('../images/people-office\ 1.jpg');
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url('../images/backgrnd-im-hero.jpg');
   }
 
   
 
   .hero-title {
-    font-size: 36px;
+    font-size: 56px;
     max-width: 496px;
     margin-bottom: 48px;
   }
@@ -383,7 +509,7 @@ a {
 }
 
 .features-item {
-  text-align: center;
+  text-align: left;
 }
 
 .icon {
@@ -391,15 +517,18 @@ a {
 }
 
 .features-subtitle {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 36px;
+  font-weight: 700;
   margin-bottom: 8px;
+  text-align: center;
 }
 
 .features-text {
   font-size: 16px;
   line-height: 1.5;
   color: #434455;
+  font-weight: 500;
+  text-align: left;
 }
 
 @media screen and (min-width: 768px) {
@@ -419,12 +548,7 @@ a {
   }
 
   .features-subtitle {
-    font-size: 24px;
     margin-bottom: 12px;
-  }
-
-  .features-text {
-    font-size: 18px;
   }
 }
 
@@ -435,7 +559,6 @@ a {
 
   .features-item {
     flex-basis: calc((100% - 72px) / 4);
-    /* align-items: center; */
     text-align: left;
   }
 
@@ -452,12 +575,13 @@ a {
   }
 
   .features-subtitle {
-    font-size: 26px;
+    font-size: 20px;
+    font-weight: 500;
     text-align: left;
   }
 
   .features-text {
-    font-size: 18px;
+    font-weight: 400;
     text-align: left;
   }
 }
@@ -465,7 +589,7 @@ a {
 
 .team {
   padding: 96px 0;
-  background-color: #F4F4F4;
+  background-color: #F4F4FD;
 }
 
 .team-list {
@@ -479,7 +603,6 @@ a {
 }
 
 .team-card {
-  width: 100%;
   max-width: 264px;
   background-color: #FFFFFF;
   border-radius: 4px;
@@ -496,12 +619,6 @@ a {
 
 .name-dev {
   padding: 32px 0 0;
-}
-
-.feature-title {
-  font-size: 20px;
-  font-weight: 500;
-  margin-bottom: 8px;
 }
 
 .feature-text.sec-three {
@@ -595,12 +712,13 @@ a {
   list-style: none;
   padding: 0;
   margin: 0;
+  gap: 72px;
   align-items: center;
 }
 
 .portfolio-item {
   max-width: 100%;
-  text-align: center;
+  text-align: left;
   background-color: #FFFFFF;
 }
 
@@ -634,7 +752,10 @@ a {
 }
 
 .name-port {
-  padding: 32px 0 0;
+  padding: 32px 16px;
+  border-bottom: 1px solid #E7E9FC;
+  border-left: 1px solid #E7E9FC;
+  border-right: 1px solid #E7E9FC;
 }
 
 .feature-title {
@@ -655,40 +776,26 @@ a {
   .portfolio-list {
     flex-direction: row;
     flex-wrap: wrap;
+    gap: 72px 24px; 
     justify-content: center;
   }
-
+  
   .portfolio-item {
     flex-basis: calc((100% - 24px) / 2);
     max-width: calc((100% - 24px) / 2);
-  }
-
-  .feature-title {
-    font-size: 24px;
-  }
-
-  .feature-text {
-    font-size: 18px;
   }
 }
 
 @media screen and (min-width: 1158px) {
   .portfolio-list {
-    gap: 24px;
+    
     margin-bottom: 48px;
   }
 
   .portfolio-item {
     flex-basis: calc((100% - 48px) / 3);
     max-width: calc((100% - 48px) / 3);
-  }
-
-  .feature-title {
-    font-size: 26px;
-  }
-
-  .feature-text {
-    font-size: 18px;
+    
   }
 
   .images-card:hover img {
@@ -793,6 +900,7 @@ a {
   background-color: transparent;
   color: #FFFFFF;
   font-size: 16px;
+  opacity: 0.3;
 }
 
 .subscribe-input::placeholder {
@@ -826,8 +934,7 @@ a {
   .footty {
     flex-direction: row;
     align-items: flex-start;
-    gap: 72px;
-    justify-content: space-between;
+    gap: 72px 24px;
     text-align: left;
   }
 
