@@ -678,7 +678,7 @@ a {
 
   .team-card {
     flex-basis: calc((100% - 24px) / 2);
-    max-width: calc((100% - 24px) / 2);
+    max-width: 264px;
   }
 }
 
